@@ -116,9 +116,9 @@ body {
 /* Shooting star style */
 .shooting-star {
   position: fixed;
-  width: 2px;
-  height: 100px;
-  background: linear-gradient(45deg, white, transparent);
+  width: 100px;           /* wider for horizontal streak */
+  height: 2px;            /* short height */
+  background: linear-gradient(90deg, white, transparent); /* horizontal gradient */
   opacity: 0;
   filter: drop-shadow(0 0 6px white);
   border-radius: 50%;
