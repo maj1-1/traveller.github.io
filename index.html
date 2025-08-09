@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Two star layers for depth -->
+  <!-- Star layers -->
   <div class="stars"></div>
   <div class="stars2"></div>
 
@@ -26,11 +26,11 @@
   </div>
 
   <script>
-    // Twinkling stars effect - creates small white dots that fade in and out randomly
+    // Twinkle stars
     const starsContainer = document.createElement('div');
     starsContainer.style.position = 'fixed';
-    starsContainer.style.top = 0;
-    starsContainer.style.left = 0;
+    starsContainer.style.top = '0';
+    starsContainer.style.left = '0';
     starsContainer.style.width = '100%';
     starsContainer.style.height = '100%';
     starsContainer.style.pointerEvents = 'none';
@@ -39,9 +39,10 @@
 
     function createTwinkle() {
       const star = document.createElement('div');
+      const size = Math.random() * 2 + 1;
       star.style.position = 'absolute';
-      star.style.width = '2px';
-      star.style.height = '2px';
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
       star.style.borderRadius = '50%';
       star.style.background = 'white';
       star.style.opacity = '0';
@@ -51,12 +52,43 @@
 
       starsContainer.appendChild(star);
 
-      setTimeout(() => (star.style.opacity = 1), 50);
-      setTimeout(() => (star.style.opacity = 0), 1500);
+      setTimeout(() => star.style.opacity = 1, 50);
+      setTimeout(() => star.style.opacity = 0, 1500);
       setTimeout(() => starsContainer.removeChild(star), 3000);
     }
 
     setInterval(createTwinkle, 150);
+
+    // Shooting stars
+    function createShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.classList.add('shooting-star');
+      shootingStar.style.top = Math.random() * 80 + 10 + 'vh';
+      shootingStar.style.left = Math.random() * 80 + 10 + 'vw';
+      document.body.appendChild(shootingStar);
+
+      shootingStar.style.opacity = '1';
+      shootingStar.style.transform = 'translateX(0) translateY(0)';
+
+      shootingStar.animate([
+        { transform: 'translate(0, 0)', opacity: 1 },
+        { transform: 'translate(300px, 150px)', opacity: 0 }
+      ], {
+        duration: 1500,
+        easing: 'ease-in-out',
+        fill: 'forwards'
+      });
+
+      setTimeout(() => {
+        shootingStar.remove();
+      }, 1600);
+    }
+
+    function shootingStarLoop() {
+      createShootingStar();
+      setTimeout(shootingStarLoop, 5000 + Math.random() * 3000);
+    }
+    shootingStarLoop();
   </script>
 </body>
 </html>
