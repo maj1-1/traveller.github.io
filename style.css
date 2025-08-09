@@ -1,19 +1,28 @@
 body {
   margin: 0;
   font-family: 'Courier New', monospace;
-  background: black;
+  background: #000000;
   color: #00ffea;
   text-align: center;
   overflow-x: hidden;
 }
 
-/* Slow drifting star background */
+/* Two layers of stars for depth */
 .stars {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: black url('https://i.ibb.co/GcP6zDb/stars-bg.png') repeat;
-  animation: slowMoveStars 200s linear infinite;
+  background: #000000 url('https://i.ibb.co/5sj4s7x/stars-dense.png') repeat;
+  animation: slowMoveStars 300s linear infinite;
+  z-index: -2;
+}
+
+.stars2 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://i.ibb.co/Wzy2F2L/stars-small.png') repeat;
+  animation: slowMoveStarsReverse 500s linear infinite;
   z-index: -1;
 }
 
@@ -23,6 +32,15 @@ body {
   }
   to {
     background-position: -5000px 2500px;
+  }
+}
+
+@keyframes slowMoveStarsReverse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 5000px -2500px;
   }
 }
 
