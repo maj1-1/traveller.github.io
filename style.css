@@ -1,13 +1,39 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: white;
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: black;
+    color: #00ffea;
     text-align: center;
-    padding: 50px;
+    overflow-x: hidden;
+}
+
+/* Star background animation */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black url('https://i.ibb.co/GcP6zDb/stars-bg.png') repeat;
+    animation: moveStars 100s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+.content {
+    padding-top: 80px;
 }
 
 h1 {
-    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-shadow: 0 0 20px #00ffea;
+}
+
+p {
+    color: #cceff0;
+    font-size: 1.2em;
 }
 
 .button-container {
@@ -15,19 +41,24 @@ h1 {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    margin-top: 40px;
 }
 
 .btn {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #0078d7;
-    color: white;
+    background: rgba(0, 255, 234, 0.1);
+    color: #00ffea;
     text-decoration: none;
-    border-radius: 8px;
+    border: 2px solid #00ffea;
+    border-radius: 10px;
     font-size: 18px;
-    transition: background-color 0.3s;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00ffea;
 }
 
 .btn:hover {
-    background-color: #005fa3;
+    background: #00ffea;
+    color: black;
+    box-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea;
 }
