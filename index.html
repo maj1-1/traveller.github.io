@@ -7,26 +7,33 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Star layers -->
+  <!-- Navbar with dropdown -->
+  <nav class="navbar">
+    <div class="dropdown">
+      <button class="dropbtn">Resources ▼</button>
+      <div class="dropdown-content">
+        <a href="ship-plans.pdf" target="_blank">📄 Ship Plans</a>
+        <a href="star-map.png" target="_blank">🗺️ Sector Star Map</a>
+        <a href="mission-brief.zip" target="_blank">📦 Mission Briefing</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Star backgrounds -->
   <div class="stars"></div>
   <div class="stars2"></div>
 
   <div class="content">
     <div class="logo-container">
-      <img src="travellerlogo.png" alt="Traveller Logo" class="logo" width="100" height="100" />
+      <img src="travellerlogo.png" alt="Traveller Logo" class="logo" />
     </div>
 
     <h1>🚀 Traveller Command Console</h1>
-    <p>Select a resource to deploy:</p>
-    <div class="button-container">
-      <a href="ship-plans.pdf" class="btn" target="_blank">📄 Ship Plans</a>
-      <a href="star-map.png" class="btn" target="_blank">🗺️ Sector Star Map</a>
-      <a href="mission-brief.zip" class="btn" target="_blank">📦 Mission Briefing</a>
-    </div>
+    <p>Select a resource from the menu above to deploy.</p>
   </div>
 
   <script>
-    // Twinkle stars
+    // Twinkling stars
     const starsContainer = document.createElement('div');
     starsContainer.style.position = 'fixed';
     starsContainer.style.top = '0';
@@ -59,30 +66,28 @@
 
     setInterval(createTwinkle, 150);
 
-    // Shooting stars
+    // Shooting stars left/right, slow and random vertical position
     function createShootingStar() {
       const shootingStar = document.createElement('div');
       shootingStar.classList.add('shooting-star');
 
-      // Random vertical position between 10vh and 80vh
       shootingStar.style.top = (10 + Math.random() * 70) + 'vh';
 
-      // Random direction
       const leftToRight = Math.random() < 0.5;
 
       if (leftToRight) {
-        shootingStar.style.left = '-120px'; // start just off the left
+        shootingStar.style.left = '-120px';
         shootingStar.style.transform = 'scaleX(1)';
       } else {
-        shootingStar.style.left = '100vw';  // start just off the right
+        shootingStar.style.left = '100vw';
         shootingStar.style.transform = 'scaleX(-1)';
       }
 
       document.body.appendChild(shootingStar);
       shootingStar.style.opacity = '1';
 
-      const distance = window.innerWidth + 240; // full width + buffer
-      const duration = 6000; // slower: 6 seconds
+      const distance = window.innerWidth + 240;
+      const duration = 6000;
 
       const keyframes = leftToRight
         ? [
