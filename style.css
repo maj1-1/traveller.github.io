@@ -67,22 +67,13 @@ body {
   }
 }
 
-/* Glow effect for logo */
+/* Logo - no spin, double size, white glow */
 .logo {
-  animation: spin 8s linear infinite;
-  filter: drop-shadow(0 0 12px #00ffea);
+  filter: drop-shadow(0 0 12px #ffffff);
   display: block;
   margin: 30px auto 20px auto;
-}
-
-/* Horizontal spinning */
-@keyframes spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+  width: 200px;
+  height: 200px;
 }
 
 /* Buttons */
@@ -97,28 +88,28 @@ body {
 .btn {
   display: inline-block;
   padding: 15px 30px;
-  background: rgba(0, 255, 234, 0.1);
-  color: #00ffea;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   text-decoration: none;
-  border: 2px solid #00ffea;
+  border: 2px solid #ffffff;
   border-radius: 10px;
   font-size: 18px;
   transition: 0.3s;
-  box-shadow: 0 0 10px #00ffea;
+  box-shadow: 0 0 10px #ffffff;
 }
 
 .btn:hover {
-  background: #00ffea;
+  background: #ffffff;
   color: black;
-  box-shadow: 0 0 20px #00ffea, 0 0 40px #00ffea;
+  box-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
 }
 
 /* Shooting star style */
 .shooting-star {
   position: fixed;
-  width: 100px;           /* wider for horizontal streak */
-  height: 2px;            /* short height */
-  background: linear-gradient(90deg, white, transparent); /* horizontal gradient */
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
   opacity: 0;
   filter: drop-shadow(0 0 6px white);
   border-radius: 50%;
