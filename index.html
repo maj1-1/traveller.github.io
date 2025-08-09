@@ -1,21 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traveller Resources</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traveller Resources</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="content">
-        <h1>🚀 Traveller Command Console</h1>
-        <p>Select a resource to deploy:</p>
-        <div class="button-container">
-            <a href="ship-plans.pdf" class="btn" target="_blank">📄 Ship Plans</a>
-            <a href="star-map.png" class="btn" target="_blank">🗺️ Sector Star Map</a>
-            <a href="mission-brief.zip" class="btn" target="_blank">📦 Mission Briefing</a>
-        </div>
+  <div class="stars"></div>
+
+  <div class="content">
+    <div class="logo-container">
+      <!-- Spinning glowing logo -->
+      <svg
+        class="logo"
+        xmlns="http://www.w3.org/2000/svg"
+        width="100"
+        height="100"
+        viewBox="0 0 64 64"
+        fill="none"
+        stroke="#00ffea"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="32" cy="32" r="30" />
+        <path d="M32 2 L32 62" />
+        <path d="M2 32 L62 32" />
+        <path d="M14 14 L50 50" />
+        <path d="M14 50 L50 14" />
+      </svg>
     </div>
+
+    <h1>🚀 Traveller Command Console</h1>
+    <p>Select a resource to deploy:</p>
+    <div class="button-container">
+      <a href="ship-plans.pdf" class="btn" target="_blank">📄 Ship Plans</a>
+      <a href="star-map.png" class="btn" target="_blank">🗺️ Sector Star Map</a>
+      <a href="mission-brief.zip" class="btn" target="_blank">📦 Mission Briefing</a>
+    </div>
+  </div>
+
+  <script>
+    // Twinkling stars effect
+    const starsContainer = document.createElement('div');
+    starsContainer.style.position = 'fixed';
+    starsContainer.style.top = 0;
+    starsContainer.style.left = 0;
+    starsContainer.style.width = '100%';
+    starsContainer.style.height = '100%';
+    starsContainer.style.pointerEvents = 'none';
+    starsContainer.style.zIndex = '-1';
+    document.body.appendChild(starsContainer);
+
+    function createTwinkle() {
+      const star = document.createElement('div');
+      star.style.position = 'absolute';
+      star.style.width = '2px';
+      star.style.height = '2px';
+      star.style.borderRadius = '50%';
+      star.style.background = 'white';
+      star.style.opacity = '0';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.transition = 'opacity 1.5s ease-in-out';
+
+      starsContainer.appendChild(star);
+
+      setTimeout(() => (star.style.opacity = 1), 50);
+      setTimeout(() => (star.style.opacity = 0), 1500);
+      setTimeout(() => starsContainer.removeChild(star), 3000);
+    }
+
+    setInterval(createTwinkle, 300);
+  </script>
 </body>
 </html>
