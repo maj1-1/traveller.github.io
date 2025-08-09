@@ -63,25 +63,45 @@
     function createShootingStar() {
       const shootingStar = document.createElement('div');
       shootingStar.classList.add('shooting-star');
-      shootingStar.style.top = Math.random() * 80 + 10 + 'vh';
-      shootingStar.style.left = Math.random() * 80 + 10 + 'vw';
+      
+      // Random vertical start position (10vh to 80vh)
+      shootingStar.style.top = (10 + Math.random() * 70) + 'vh';
+
+      // Decide direction: true = left to right, false = right to left
+      const leftToRight = Math.random() < 0.5;
+
+      if (leftToRight) {
+        shootingStar.style.left = '-100px'; // start just off left side
+        shootingStar.style.transform = 'scaleX(1)';
+      } else {
+        shootingStar.style.left = '100vw';  // start just off right side
+        shootingStar.style.transform = 'scaleX(-1)'; // flip horizontally for the gradient
+      }
+
       document.body.appendChild(shootingStar);
 
       shootingStar.style.opacity = '1';
-      shootingStar.style.transform = 'translateX(0) translateY(0)';
 
-      shootingStar.animate([
-        { transform: 'translate(0, 0)', opacity: 1 },
-        { transform: 'translate(300px, 150px)', opacity: 0 }
-      ], {
-        duration: 1500,
+      const distance = window.innerWidth + 200; // width + some buffer
+      const duration = 2000; // ms
+
+      const keyframes = leftToRight
+        ? [
+            { transform: 'translateX(0)', opacity: 1 },
+            { transform: `translateX(${distance}px)`, opacity: 0 }
+          ]
+        : [
+            { transform: 'translateX(0)', opacity: 1 },
+            { transform: `translateX(-${distance}px)`, opacity: 0 }
+          ];
+
+      shootingStar.animate(keyframes, {
+        duration: duration,
         easing: 'ease-in-out',
         fill: 'forwards'
       });
 
-      setTimeout(() => {
-        shootingStar.remove();
-      }, 1600);
+      setTimeout(() => shootingStar.remove(), duration + 100);
     }
 
     function shootingStarLoop() {
