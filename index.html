@@ -19,26 +19,21 @@
     </div>
   </nav>
 
-  <!-- Star backgrounds -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
+  <!-- Fixed logo top-left -->
+  <div class="logo-container">
+    <img src="travellerlogo.png" alt="Traveller Logo" class="logo" />
+  </div>
 
+  <!-- Content container centers the map -->
   <div class="content">
-    <div class="main-container">
-      <img src="travellerlogo.png" alt="Traveller Logo" class="logo" />
-      <div class="map-container">
-        <iframe
-          src="https://travellermap.com/?p=-43.738!18.729!7.6"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
-      </div>
+    <div class="map-container">
+      <iframe src="https://travellermap.com/?p=-43.734!18.5!7" allowfullscreen></iframe>
     </div>
   </div>
 
+  <!-- Stars and shooting star scripts here -->
   <script>
-    // Twinkling stars
+    // Twinkling stars logic (same as before)
     const starsContainer = document.createElement('div');
     starsContainer.style.position = 'fixed';
     starsContainer.style.top = '0';
@@ -71,7 +66,7 @@
 
     setInterval(createTwinkle, 150);
 
-    // Shooting stars left/right, slow and random vertical position
+    // Shooting stars
     function createShootingStar() {
       const shootingStar = document.createElement('div');
       shootingStar.classList.add('shooting-star');
