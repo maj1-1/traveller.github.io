@@ -158,27 +158,31 @@ body {
   height: 200px;
 }
 
-/* Content container aligned left */
+/* Content container centered */
 .content {
   max-width: 900px;
-  margin: 0;
+  margin: 0 auto; /* centers horizontally */
   padding: 0;
+  text-align: center; /* center logo and iframe */
 }
 
-/* Embedded Traveller Map container */
+/* Map container styling */
 .map-container {
-  margin-top: 20px;
+  margin: 20px auto; /* center horizontally */
   border: 2px solid #00ffea;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 20px #00ffea;
+  max-width: 100%;
 }
 
 .map-container iframe {
   width: 100%;
-  height: 80vh; /* Responsive height */
+  height: 80vh;
   border: none;
+  display: block;
 }
+
 
 /* Shooting star style */
 .shooting-star {
