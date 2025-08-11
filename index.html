@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Fixed logo top-left -->
+  <div class="logo-container">
+    <img src="travellerlogo.png" alt="Traveller Logo" class="logo" />
+  </div>
+
   <!-- Navbar with dropdown on top-right -->
   <nav class="navbar">
     <div class="dropdown">
@@ -19,11 +24,6 @@
     </div>
   </nav>
 
-  <!-- Fixed logo top-left -->
-  <div class="logo-container">
-    <img src="travellerlogo.png" alt="Traveller Logo" class="logo" />
-  </div>
-
   <!-- Content container centers the map -->
   <div class="content">
     <div class="map-container">
@@ -31,9 +31,9 @@
     </div>
   </div>
 
-  <!-- Stars and shooting star scripts here -->
+  <!-- Stars and shooting star scripts -->
   <script>
-    // Twinkling stars logic (same as before)
+    // Twinkling stars logic
     const starsContainer = document.createElement('div');
     starsContainer.style.position = 'fixed';
     starsContainer.style.top = '0';
