@@ -9,6 +9,8 @@ body {
   padding-top: 70px; /* space for navbar */
   max-width: 900px;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Navbar styles */
@@ -17,7 +19,7 @@ body {
   top: 0;
   right: 0;
   background-color: #000000dd; /* black with some transparency */
-  z-index: 10;
+  z-index: 20;
   padding: 10px 20px;
   box-shadow: 0 2px 10px rgba(255,255,255,0.2);
   display: flex;
@@ -61,7 +63,7 @@ body {
   overflow: hidden;
   top: 45px;
   right: 0;
-  z-index: 20;
+  z-index: 30;
 }
 
 /* Dropdown links */
@@ -143,7 +145,7 @@ body {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 15;
+  z-index: 25;
 }
 
 /* Logo styling */
