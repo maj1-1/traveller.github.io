@@ -160,9 +160,24 @@ body {
 
 /* Content container aligned left */
 .content {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0;
   padding: 0;
+}
+
+/* Embedded Traveller Map container */
+.map-container {
+  margin-top: 20px;
+  border: 2px solid #00ffea;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #00ffea;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 80vh; /* Responsive height */
+  border: none;
 }
 
 /* Shooting star style */
